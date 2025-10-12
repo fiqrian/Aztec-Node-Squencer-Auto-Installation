@@ -396,7 +396,7 @@ EOF
   quick_bar "Saved ${AZTEC_ENV}" 1
 }
 
-menu_view_reconfigure_env() {
+menu_view_env() {
   header
   print_env
   read -rp "➡ Do you want to edit values? (y/N): " ans || true
@@ -682,7 +682,7 @@ while true; do
   echo -e "1. Check Tools"
   echo -e "2. Run Node"
   echo -e "3. Run RPC"
-  echo -e "4. View & Reconfigure .env"
+  echo -e "4. View .env"
   echo -e "5. Update Node"
   echo -e "6. Restart Node & RPC"
   echo -e "7. Stop Node & RPC"
@@ -694,7 +694,7 @@ while true; do
     1) menu_tools_submenu ;;
     2) menu_run_node ;;
     3) menu_install_rpc ;;
-    4) menu_view_reconfigure_env ;;
+    4) menu_view_env ;;
     5) menu_update_node ;;
     6) menu_restart ;;
     7) menu_stop ;;
