@@ -314,7 +314,7 @@ services:
       options: { max-size: "10m", max-file: "3" }
 
   prysm:
-    image: gcr.io/prysmaticlabs/prysm/beacon-chain
+    image: gcr.io/offchainlabs/prysm/beacon-chain:stable 
     container_name: prysm
     network_mode: host
     restart: unless-stopped
@@ -340,6 +340,7 @@ services:
       - --min-sync-peers=3
       - --checkpoint-sync-url=https://checkpoint-sync.sepolia.ethpandaops.io
       - --genesis-beacon-api-url=https://checkpoint-sync.sepolia.ethpandaops.io
+      - --subscribe-all-data-subnets
     logging:
       driver: "json-file"
       options: { max-size: "10m", max-file: "3" }
