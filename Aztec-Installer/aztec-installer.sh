@@ -314,7 +314,7 @@ services:
       options: { max-size: "10m", max-file: "3" }
 
   prysm:
-    image: gcr.io/prysmaticlabs/prysm/beacon-chain:stable
+    image: gcr.io/prysmaticlabs/prysm/beacon-chain
     container_name: prysm
     network_mode: host
     restart: unless-stopped
