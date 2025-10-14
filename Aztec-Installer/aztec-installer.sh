@@ -341,7 +341,6 @@ services:
       - --checkpoint-sync-url=https://checkpoint-sync.sepolia.ethpandaops.io
       - --genesis-beacon-api-url=https://checkpoint-sync.sepolia.ethpandaops.io
       - --subscribe-all-data-subnets
-      - --accept-terms-of-use 
     logging:
       driver: "json-file"
       options: { max-size: "10m", max-file: "3" }
