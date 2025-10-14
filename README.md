@@ -225,6 +225,6 @@ docker rm -f aztec-sequencer prysm geth 2>/dev/null || true
 rm -rf ~/.aztec/testnet/data ~/aztec ~/ethereum
 ```
 
-gAtztec ☕
+gAztec ☕
 
 Good luck!
