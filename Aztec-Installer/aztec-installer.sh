@@ -309,7 +309,6 @@ services:
       - --authrpc.port=8551
       - --syncmode=snap
       - --datadir=/data
-      - --subscribe-all-data-subnets
     logging:
       driver: "json-file"
       options: { max-size: "10m", max-file: "3" }
