@@ -39,8 +39,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/fiqrian/Aztec-Node-Squencer-
 1. Check Tools
 2. Run Node
 3. Run RPC
-4. View & Reconfigure .env
-5. Update Node
+4. View & Edit .env
+5. Update Node & RPC
 6. Restart Node & RPC
 7. Stop Node & RPC
 8. Delete Node & RPC
@@ -51,6 +51,11 @@ bash <(curl -fsSL https://raw.githubusercontent.com/fiqrian/Aztec-Node-Squencer-
 ---
 
 ## 🔧 Feature Guide
+
+### New Feature 🆕
+   - Check Sync RPC
+   - Check Version Node & RPC
+   - Update RPC 
 
 ### 1) Check Tools
 A small toolbox with 4 sub‑features:
