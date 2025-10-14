@@ -173,7 +173,7 @@ CONSENSUS_BEACON_URL=${BEACON_RPC}
 VALIDATOR_PRIVATE_KEY=${VALKEY}
 COINBASE=${COINBASE}
 P2P_IP=${P2P_IP}
-LOG_LEVEL=debug
+LOG_LEVEL=info
 GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPPADDR}
 EOF
   quick_bar "Wrote ${AZTEC_ENV}" 1
@@ -201,7 +201,7 @@ reconfigure_env() {
   read -rp "VALIDATOR_PRIVATE_KEY [${VALKEY}]: " in; [[ -n "${in:-}" ]] && VALKEY="$in"
   read -rp "COINBASE [${COINBASE}]: " in; [[ -n "${in:-}" ]] && COINBASE="$in"
   read -rp "P2P_IP [${P2P}]: " in; [[ -n "${in:-}" ]] && P2P="$in"
-  read -rp "LOG_LEVEL [${LOGLEVEL:-debug}]: " in; [[ -n "${in:-}" ]] && LOGLEVEL="$in"
+  read -rp "LOG_LEVEL [${LOGLEVEL}]: " in; [[ -n "${in:-}" ]] && LOGLEVEL="$in"
   read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [${GPPADDR:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}]: " in; [[ -n "${in:-}" ]] && GPPADDR="$in"
   umask 077
   cat > "${AZTEC_ENV}" <<EOF
@@ -210,7 +210,7 @@ CONSENSUS_BEACON_URL=${BEACON_RPC}
 VALIDATOR_PRIVATE_KEY=${VALKEY}
 COINBASE=${COINBASE}
 P2P_IP=${P2P}
-LOG_LEVEL=${LOGLEVEL:-debug}
+LOG_LEVEL=${LOGLEVEL}
 GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPPADDR:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}
 EOF
   quick_bar "Saved ${AZTEC_ENV}" 1
@@ -254,7 +254,7 @@ services:
       VALIDATOR_PRIVATE_KEY: ${VALIDATOR_PRIVATE_KEY}
       COINBASE: ${COINBASE}
       P2P_IP: ${P2P_IP}
-      LOG_LEVEL: ${LOG_LEVEL:-debug}
+      LOG_LEVEL: ${LOG_LEVEL}
       GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS: ${GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS}
     entrypoint: >
       sh -c 'node --no-warnings /usr/src/yarn-project/aztec/dest/bin/index.js
