@@ -179,6 +179,7 @@ services:
       - 40400:40400/tcp
       - 40400:40400/udp
       - 8080:8080
+      - 8880:8880
     volumes:
       - ${HOME}/.aztec/testnet/data/:/data
 YAML
