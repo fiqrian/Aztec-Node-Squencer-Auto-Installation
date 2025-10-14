@@ -98,7 +98,7 @@ A small toolbox with 4 sub‑features:
 **Keys used by the sequencer compose file**:
 ```
 ETHEREUM_RPC_URL=...            # L1 execution RPC URL (e.g., http://127.0.0.1:8545)
-CONSENSUS_BEACON_URL=...        # Beacon chain API URL (e.g., http://127.0.0.1:4000)
+CONSENSUS_BEACON_URL=...        # Beacon chain API URL (e.g., http://127.0.0.1:3500)
 VALIDATOR_PRIVATE_KEY=0x...     # Your validator private key
 COINBASE=0x...                  # Your Ethereum address that receives fees
 P2P_IP=...                      # Public IP for P2P
