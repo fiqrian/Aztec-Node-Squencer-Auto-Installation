@@ -164,8 +164,8 @@ write_aztec_env() {
   read -rp "VALIDATOR_PRIVATE_KEY (0x...): " VALKEY || true
   read -rp "COINBASE (wallet 0x...): " COINBASE || true
   read -rp "P2P_IP (public IP address): " P2P_IP || true
-  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa]: " GPPADDR || true
-  [[ -z "${GPPADDR:-}" ]] && GPPADDR="0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa"
+  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [0xDCd9DdeAbEF70108cE02576df1eB333c4244C666]: " GPPADDR || true
+  [[ -z "${GPPADDR:-}" ]] && GPPADDR="0xDCd9DdeAbEF70108cE02576df1eB333c4244C666"
   umask 077
   cat > "${AZTEC_ENV}" <<EOF
 ETHEREUM_RPC_URL=${ETH_RPC}
@@ -202,7 +202,7 @@ reconfigure_env() {
   read -rp "COINBASE [${COINBASE}]: " in; [[ -n "${in:-}" ]] && COINBASE="$in"
   read -rp "P2P_IP [${P2P}]: " in; [[ -n "${in:-}" ]] && P2P="$in"
   read -rp "LOG_LEVEL [${LOGLEVEL}]: " in; [[ -n "${in:-}" ]] && LOGLEVEL="$in"
-  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [${GPPADDR:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}]: " in; [[ -n "${in:-}" ]] && GPPADDR="$in"
+  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [${GPPADDR:-0xDCd9DdeAbEF70108cE02576df1eB333c4244C666}]: " in; [[ -n "${in:-}" ]] && GPPADDR="$in"
   umask 077
   cat > "${AZTEC_ENV}" <<EOF
 ETHEREUM_RPC_URL=${ETH_RPC}
@@ -211,7 +211,7 @@ VALIDATOR_PRIVATE_KEY=${VALKEY}
 COINBASE=${COINBASE}
 P2P_IP=${P2P}
 LOG_LEVEL=${LOGLEVEL}
-GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPPADDR:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}
+GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPPADDR:-0xDCd9DdeAbEF70108cE02576df1eB333c4244C666}
 EOF
   quick_bar "Saved ${AZTEC_ENV}" 1
 }
