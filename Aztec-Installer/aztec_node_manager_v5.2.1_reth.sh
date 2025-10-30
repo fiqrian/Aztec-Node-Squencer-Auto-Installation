@@ -201,8 +201,8 @@ write_aztec_env() {
   read -rp "VALIDATOR_PRIVATE_KEY (0x...): " VALKEY
   read -rp "COINBASE (wallet 0x...): " COINBASE
   read -rp "P2P_IP (public IP): " P2P_IP
-  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa]: " GPP
-  [ -z "$GPP" ] && GPP="0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa"
+  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [0xDCd9DdeAbEF70108cE02576df1eB333c4244C666]: " GPP
+  [ -z "$GPP" ] && GPP="0xDCd9DdeAbEF70108cE02576df1eB333c4244C666"
 
   umask 077
   cat > "$AZTEC_ENV" <<EOF
@@ -241,7 +241,7 @@ reconfigure_env() {
   read -rp "COINBASE [$COINBASE]: " in; [ -n "$in" ] && COINBASE="$in"
   read -rp "P2P_IP [$P2P]: " in; [ -n "$in" ] && P2P="$in"
   read -rp "LOG_LEVEL [${LOGLEVEL:-debug}]: " in; [ -n "$in" ] && LOGLEVEL="$in"
-  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [${GPP:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}]: " in; [ -n "$in" ] && GPP="$in"
+  read -rp "GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS [${GPP:-0xDCd9DdeAbEF70108cE02576df1eB333c4244C666}]: " in; [ -n "$in" ] && GPP="$in"
 
   umask 077
   cat > "$AZTEC_ENV" <<EOF
@@ -251,7 +251,7 @@ VALIDATOR_PRIVATE_KEY=$VALKEY
 COINBASE=$COINBASE
 P2P_IP=$P2P
 LOG_LEVEL=${LOGLEVEL:-debug}
-GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPP:-0x9d8869d17af6b899aff1d93f23f863ff41ddc4fa}
+GOVERNANCE_PROPOSER_PAYLOAD_ADDRESS=${GPP:-0xDCd9DdeAbEF70108cE02576df1eB333c4244C666}
 EOF
   quick_bar "Saved $AZTEC_ENV" 1
 }
