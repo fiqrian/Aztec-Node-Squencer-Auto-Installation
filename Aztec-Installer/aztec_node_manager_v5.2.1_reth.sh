@@ -650,7 +650,7 @@ check_ports_table() {
 
 check_peer_id_external() {
   local tmp="/tmp/Port_cheaker.sh"
-  run_cmd_with_bar "Download Peer ID checker" "curl -fsSL -o '$tmp' 'https://raw.githubusercontent.com/SpeedoWeb3/Testing/refs/heads/main/Port_cheaker.sh' && chmod +x '$tmp'"
+  run_cmd_with_bar "Download Peer ID checker" "curl -fsSL -o '$tmp' 'http://raw.githubusercontent.com/fiqrian/Aztec-tools/refs/heads/main/PeerIDStatus' && chmod +x '$tmp'"
   bash "$tmp" || true
 }
 
