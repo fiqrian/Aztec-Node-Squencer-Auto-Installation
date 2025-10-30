@@ -737,6 +737,41 @@ menu_delete() {
     *) echo "Invalid choice"; sleep 1 ;;
   esac
 }
+# ---------- Install Bundle NODE + RPC ----------
+menu_install_bundle() {
+  header
+  echo "               Install & Run Node + RPC (Bundle)"
+  echo "======================================================"
+  read -rp "Press Enter to start..." _
+  : > "$LOG"
+
+  # 1. base deps
+  pkg_install_base
+
+  # 2. docker
+  ensure_docker
+
+  # 3. UFW untuk dua-duanya
+  ensure_ufw_seq
+  ensure_ufw_rpc
+
+  # 4. Aztec .env + compose + run
+  ensure_aztec_cli
+  write_aztec_env
+  write_aztec_compose
+  run_aztec_compose
+
+  # 5. RPC dirs + compose + run (Reth + Prysm)
+  ensure_rpc_dirs
+  write_rpc_compose
+  run_rpc_compose
+
+  echo "======================================================"
+  echo "Bundle install finished (Node + RPC are up)."
+  echo "Check: docker ps"
+  echo "======================================================"
+  pause
+}
 
 # ---------- MAIN ----------
 need_root
@@ -745,26 +780,28 @@ while true; do
   echo -e "        MENU OPERATION SEQUENCER NODE"
   echo -e "======================================================"
   echo -e "1. Check Tools"
-  echo -e "2. Run Node"
-  echo -e "3. Run RPC"
-  echo -e "4. View & Edit .env"
-  echo -e "5. Update Node & RPC"
-  echo -e "6. Restart Node & RPC"
-  echo -e "7. Stop Node & RPC"
-  echo -e "8. Delete Node & RPC"
-  echo -e "9. Exit"
+  echo -e "2. Install Bundle (Node + RPC)"
+  echo -e "3. Run Node"
+  echo -e "4. Run RPC"
+  echo -e "5. View & Edit .env"
+  echo -e "6. Update Node & RPC"
+  echo -e "7. Restart Node & RPC"
+  echo -e "8. Stop Node & RPC"
+  echo -e "9. Delete Node & RPC"
+  echo -e "10.Exit"
   echo -e "======================================================"
-  read -rp "Choose Option (1-9): " opt
+  read -rp "Choose Option (1-10): " opt
   case "$opt" in
     1) menu_tools_submenu ;;
-    2) menu_run_node ;;
-    3) menu_install_rpc ;;
-    4) menu_view_reconfigure_env ;;
-    5) menu_update_node ;;
-    6) menu_restart ;;
-    7) menu_stop ;;
-    8) menu_delete ;;
-    9) echo "Bye!"; exit 0 ;;
+    2) menu_install_bundle ;;
+    3) menu_run_node ;;
+    4) menu_install_rpc ;;
+    5) menu_view_reconfigure_env ;;
+    6) menu_update_node ;;
+    7) menu_restart ;;
+    8) menu_stop ;;
+    9) menu_delete ;;
+    10) echo "Bye!"; exit 0 ;;
     *) echo -e "${YELLOW}Invalid choice.${NC}"; sleep 1 ;;
   esac
 
