@@ -761,7 +761,7 @@ menu_install_bundle() {
   write_aztec_compose
   run_aztec_compose
 
-  # 5. RPC dirs + compose + run (Reth + Prysm)
+  # 5. RPC dirs + compose + run (Geth + Prysm)
   ensure_rpc_dirs
   write_rpc_compose
   run_rpc_compose
