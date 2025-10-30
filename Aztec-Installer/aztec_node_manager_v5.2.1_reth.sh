@@ -854,7 +854,7 @@ while true; do
   echo "2. Install Bundle (Node + RPC)"
   echo "3. Run Node"
   echo "4. Run RPC"
-  echo "5. View & Reconfigure .env"
+  echo "5. View & Edit .env"
   echo "6. Update Node & RPC"
   echo "7. Restart Node & RPC"
   echo "8. Stop Node & RPC"
